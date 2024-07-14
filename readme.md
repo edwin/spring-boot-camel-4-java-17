@@ -60,3 +60,27 @@ registry.redhat.io/fuse7/fuse-java-openshift-jdk17-rhel8:1.13 (redhat 8.10)
 
 Total: 118 (UNKNOWN: 0, LOW: 90, MEDIUM: 28, HIGH: 0, CRITICAL: 0)
 ```
+
+## Logs
+```
+podman run -p 8080:8080 localhost/spring-boot-camel-4-java-17
+Starting the Java application using /opt/run-java/run-java.sh ...
+exec java -javaagent:/opt/jolokia/jolokia.jar=config=/opt/jolokia/etc/jolokia.properties -javaagent:/opt/prometheus/jmx_prometheus_javaagent.jar=9779:/opt/prometheus/prometheus-config.yml -Xmx1954m -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:MinHeapFreeRatio=20 -XX:MaxHeapFreeRatio=40 -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/application.jar
+I> No access restrictor found, access to any MBean is allowed
+Jolokia: Agent started with URL http://10.88.0.38:8778/jolokia/
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-06-25T18:31:29.432Z  INFO 1 --- [           main] com.edw.Main                             : Starting Main using Java 17.0.11 with PID 1 (/deployments/application.jar started by jboss in /deployments)
+2024-06-25T18:31:29.490Z DEBUG 1 --- [           main] com.edw.Main                             : Running with Spring Boot v3.2.5, Spring v6.1.6
+..........
+..........
+2024-06-25T18:31:51.106Z  INFO 1 --- [           main] com.edw.Main                             : Started Main in 24.809 seconds (process running for 29.219)
+2024-06-25T18:31:51.747Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2671 ms
+```
